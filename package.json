@@ -67,7 +67,9 @@
     "format": "prettier --write \"src/**/*.ts\" \"webview-ui/src/**/*.{ts,tsx,css}\" \"*.{js,mjs}\" \"webview-ui/*.{js,ts}\"",
     "format:check": "prettier --check \"src/**/*.ts\" \"webview-ui/src/**/*.{ts,tsx,css}\" \"*.{js,mjs}\" \"webview-ui/*.{js,ts}\"",
     "e2e": "playwright test --config e2e/playwright.config.ts",
-    "e2e:debug": "playwright test --config e2e/playwright.config.ts --debug"
+    "e2e:debug": "playwright test --config e2e/playwright.config.ts --debug",
+    "server": "npm run build:webview && tsx server/index.ts",
+    "server:dev": "tsx server/index.ts"
   },
   "devDependencies": {
     "@anthropic-ai/sdk": "^0.80.0",
@@ -76,6 +78,7 @@
     "@types/pngjs": "^6.0.5",
     "@types/vscode": "^1.105.0",
     "@vscode/test-electron": "^2.5.2",
+    "@types/ws": "^8.18.1",
     "esbuild": "^0.27.2",
     "eslint": "^10.0.3",
     "eslint-config-prettier": "^10.1.8",
@@ -94,5 +97,8 @@
     "webview-ui/src/**/*.{ts,tsx}": "eslint --fix",
     "*.{ts,tsx,js,mjs,css,json,md}": "prettier --write",
     "webview-ui/**/*.{ts,tsx,js,css,json}": "prettier --write"
+  },
+  "dependencies": {
+    "ws": "^8.20.0"
   }
 }

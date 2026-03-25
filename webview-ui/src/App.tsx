@@ -123,6 +123,8 @@ function EditActionBar({
 function App() {
   // Browser runtime (dev or static dist): dispatch mock messages after the
   // useExtensionMessages listener has been registered.
+  // When connected to the standalone server, these provide asset data (sprites, tiles, furniture).
+  // The server's layoutLoaded/settingsLoaded will override the mock ones.
   useEffect(() => {
     if (isBrowserRuntime) {
       void import('./browserMock.js').then(({ dispatchMockMessages }) => dispatchMockMessages());
